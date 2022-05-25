@@ -9,11 +9,14 @@
 
 $black: #212121;
 $white: #ffffff;
+$blue: #00aff0;
+$red: #eb2145;
+$grey: #f1f1f1;
 
 body {
   font-family: 'Roboto', sans-serif;
   height: 100vh;
-  background-color: grey;
+  background-color: $black;
 }
 
 .nav {
@@ -122,6 +125,104 @@ body {
   }
 }
 
+.header {
+  height: 100vh;
+  background-color: $black;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .container {
+    padding: 89px;
+
+    .title {
+      margin-bottom: 25px;
+
+      h1 {
+        font-weight: 400;
+        font-size: 42px;
+      }
+
+      h2 {
+        font-weight: 100;
+        font-size: 20px;
+        color: $blue;
+      }
+    }
+
+    .body {
+      width: 50%;
+      text-align: justify;
+      font-weight: 100;
+
+      b {
+        color: $red;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .container {
+      padding: 25px;
+
+      .body {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.skills {
+  height: 100vh;
+  background-color: $grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: $black;
+}
+
+.background {
+  height: 100vh;
+  background-color: $black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+}
+
+.works {
+  height: 100vh;
+  background-color: $grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: $black;
+}
+
+.contact {
+  height: 100vh;
+  background-color: $red;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+}
+
+.footer {
+  height: 40vh;
+  background-color: $black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+}
+
 .login {
   background-color: $black;
   color: $black;
@@ -134,7 +235,7 @@ body {
   .container {
     background-color: $white;
     border-radius: 5px;
-    padding: 25px 50px 25px 50px;
+    padding: 35px 50px 35px 50px;
     width: 35%;
 
     .title {
@@ -149,9 +250,11 @@ body {
         font-size: 14px;
       }
     }
+  }
 
-    .body {
-      
+  @media screen and (max-width: 600px) {
+    .container {
+      width: 90%;
     }
   }
 }

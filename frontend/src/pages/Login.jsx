@@ -24,7 +24,7 @@ function Login() {
     }
 
     if (isSuccess && user) {
-      navigate("/")
+      navigate("/dashboard")
     }
 
     return () => {
@@ -57,7 +57,7 @@ function Login() {
         ) : (
           <div className="container">
             <div className="title">
-              <h1>Sign in</h1>
+              <h1>Login</h1>
               <p>There are lots of tools inside.</p>
             </div>
             <div className="body">
