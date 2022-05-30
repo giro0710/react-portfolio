@@ -13,6 +13,8 @@ $blue: #00aff0;
 $red: #eb2145;
 $grey: #f1f1f1;
 
+$containerPadding: 89px;
+
 body {
   font-family: 'Roboto', sans-serif;
   height: 100vh;
@@ -33,7 +35,7 @@ body {
     align-items: center;
     background-color: transparent;
     overflow: hidden;
-    padding: 0px 75px 0px 75px;
+    padding: 0px 75px;
     transition: 0.8s;
 
     .brand {
@@ -134,7 +136,7 @@ body {
   justify-content: center;
 
   .container {
-    padding: 89px;
+    padding: $containerPadding;
 
     .title {
       margin-bottom: 25px;
@@ -174,6 +176,152 @@ body {
 }
 
 .skills {
+  background-color: $grey;
+  color: $black;
+
+  .container {
+    padding: $containerPadding;
+
+    .body {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      .item {
+        width: 33.33333%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        img {
+          width: 120px;
+        }
+
+        h1 {
+          margin-bottom: 20px;
+        }
+
+        p {
+          font-weight: 100;
+          text-align: justify;
+          padding: 0 35px;
+        }
+      }
+
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    height: auto;
+    
+    .container {
+      padding: 25px;
+      
+      .body {
+        flex-wrap: wrap;
+
+        .item {
+          width: 100%;
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+
+.stacks {
+  background-color: $black;
+  color: $white;
+
+  .container {
+    padding: 25px $containerPadding;
+
+    .body {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .stack {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .description {
+          width: 20%;
+
+          h1 {
+            font-weight: 100;
+            font-size: 16px;
+          }
+        }
+
+        .technologies {
+          width: 80%;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 15px;
+
+            img {
+              width: 50px;
+              margin-bottom: 5px;
+            }
+
+            label {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .container {
+      padding: 25px;
+
+      .body {
+        .stack {
+          flex-wrap: wrap;
+          
+          .description {
+            width: 100%;
+            text-align: center;
+
+            h1 {
+              font-size: 24px;
+              font-weight: 600;
+              margin-bottom: 20px;
+            }
+
+            span {
+              display: none;
+            }
+          }
+
+          .technologies {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+.background {
   height: 100vh;
   background-color: $grey;
   display: flex;
@@ -183,7 +331,7 @@ body {
   color: $black;
 }
 
-.background {
+.works {
   height: 100vh;
   background-color: $black;
   display: flex;
@@ -191,16 +339,6 @@ body {
   align-items: center;
   justify-content: center;
   color: $white;
-}
-
-.works {
-  height: 100vh;
-  background-color: $grey;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  color: $black;
 }
 
 .contact {

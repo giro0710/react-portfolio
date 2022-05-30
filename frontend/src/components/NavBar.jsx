@@ -5,6 +5,7 @@ import { FaBars, FaArrowLeft } from "react-icons/fa"
 import { reset, logoutUser } from "../features/auth/authSlice"
 
 function NavBar() {
+  const [brandName, setBrandName] = useState("My Portfolio")
   const [isScrolledDown, setIsScrolledDown] = useState(false)
   const [isMenuClicked, setIsMenuClicked] = useState(false)
 
@@ -20,11 +21,12 @@ function NavBar() {
   }
 
   const handleScroll = () => {
-    console.log("Sadsad")
     if (document.body.scrollTop > 240 || document.documentElement.scrollTop > 240) {
       setIsScrolledDown(true)
+      setBrandName("Gian Roi Calvario")
     } else {
       setIsScrolledDown(false)
+      setBrandName("My Portfolio")
     }
   }
 
@@ -45,7 +47,7 @@ function NavBar() {
           { currentLocation === "/login" ? (
             <Link to="/"><FaArrowLeft size={14}/> Back to Portfolio</Link>
           ) : (
-            <Link to="/">My Portfolio</Link>
+            <Link to="/">{ brandName }</Link>
           ) }
         </div>
         <div className={ isMenuClicked ? "items responsive" : "items"}>
