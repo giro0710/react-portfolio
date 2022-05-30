@@ -1,6 +1,63 @@
-import React from 'react'
+import { useState } from "react"
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 
 function Home() {
+  const [currentBSI, setCurrentBSI] = useState(0) // BSI = Background Story Index
+  const backgroundStories = [
+    {
+      photo: require("../assets/images/bulacan-state-university.jpg"),
+      story: (
+        <div className="item">
+          <div className="title">
+            <h1><i>Graduated at</i><br/>Bulacan State University</h1>
+            <p>City of Malolos, Bulacan</p>
+            <h1><i>with the degree of</i><br/>Bachelor of Science in Information Technology</h1>
+            <p>2014 - 2018</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      photo: require("../assets/images/gp-nagata.jpg"),
+      story: (
+        <div className="item">
+          <div className="title">
+            <h1>GP-Nagata</h1>
+          </div>
+        </div>
+      )
+    },
+    {
+      photo: require("../assets/images/gp-nagata-2.jpg"),
+      story: (
+        <div className="item">
+          <div className="title">
+            <h1>GP-Nagata</h1>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  const handleNextBGStory = () => {
+    let index = currentBSI;
+    if (currentBSI < backgroundStories.length - 1) {
+      setCurrentBSI(index+=1)
+    } else {
+      setCurrentBSI(0)
+    }
+  }
+
+  const handlePrevBGStory = () => {
+    let index = currentBSI;
+    const lastIndex = backgroundStories.length - 1;
+    if (currentBSI > 0) {
+      setCurrentBSI(index-=1)
+    } else {
+      setCurrentBSI(lastIndex)
+    }
+  }
+
   return (
     <>
       <section className="header">
@@ -154,7 +211,18 @@ function Home() {
 
       <section className="background">
         <div className="container">
-          <h1>Background</h1>
+          <div className="body">
+            <div className="photo">
+              <img src={backgroundStories[currentBSI].photo} alt="Bulacan State University" />
+            </div>
+            <div className="story">
+              <div className="controllers">
+                <button onClick={handlePrevBGStory}><FaAngleLeft /></button>
+                <button onClick={handleNextBGStory}><FaAngleRight /></button>
+              </div>
+              { backgroundStories[currentBSI].story }
+            </div>
+          </div>
         </div>
       </section>
 

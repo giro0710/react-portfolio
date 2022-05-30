@@ -322,13 +322,125 @@ body {
 }
 
 .background {
-  height: 100vh;
   background-color: $grey;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   color: $black;
+
+  .container {
+    padding: 0px;
+
+    .body {
+      display: flex;
+      flex-direction: row;
+
+      .photo {
+        width: 50%;
+
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      .story {
+        width: 50%;
+        position: relative;
+
+        .item {
+          width: 100%;
+          padding: $containerPadding;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+  
+            h1 {
+              text-align: center;
+            }
+    
+            p {
+              font-size: 14px;
+              font-weight: 100;
+              margin-bottom: 30px;
+            }
+
+            i {
+              font-weight: 100;
+              font-size: 14px;
+            }
+          }
+        }
+
+        .controllers {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          padding: 15px;
+
+          button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+            font-size: 42px;
+
+            &:hover {
+              transform: scale(0.8);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .container {
+      .body {
+        flex-wrap: wrap;
+
+        .photo {
+          width: 100%;
+        }
+
+        .story {
+          position: absolute;
+          background-color: rgba(255, 255, 255, 0.5);
+          width: 100%;
+          height: 100vw;
+          color: black;
+
+          .item {
+            padding: 25px 10px;
+
+            .title {
+              h1 {
+                font-size: 18px;
+              }
+
+              p, i {
+                font-size: 12px;
+              }
+            }
+          }
+
+          .controllers {
+            padding: 5px;
+          }
+        }
+      }
+    }
+  }
 }
 
 .works {

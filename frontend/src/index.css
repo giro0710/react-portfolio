@@ -257,13 +257,101 @@ body {
 }
 
 .background {
-  height: 100vh;
   background-color: #f1f1f1;
+  color: #212121;
+}
+.background .container {
+  padding: 0px;
+}
+.background .container .body {
+  display: flex;
+  flex-direction: row;
+}
+.background .container .body .photo {
+  width: 50%;
+}
+.background .container .body .photo img {
+  display: block;
+  width: 100%;
+}
+.background .container .body .story {
+  width: 50%;
+  position: relative;
+}
+.background .container .body .story .item {
+  width: 100%;
+  padding: 89px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.background .container .body .story .item .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.background .container .body .story .item .title h1 {
+  text-align: center;
+}
+.background .container .body .story .item .title p {
+  font-size: 14px;
+  font-weight: 100;
+  margin-bottom: 30px;
+}
+.background .container .body .story .item .title i {
+  font-weight: 100;
+  font-size: 14px;
+}
+.background .container .body .story .controllers {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  color: #212121;
+  justify-content: space-between;
+  padding: 15px;
+}
+.background .container .body .story .controllers button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  font-size: 42px;
+}
+.background .container .body .story .controllers button:hover {
+  transform: scale(0.8);
+}
+@media screen and (max-width: 600px) {
+  .background .container .body {
+    flex-wrap: wrap;
+  }
+  .background .container .body .photo {
+    width: 100%;
+  }
+  .background .container .body .story {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    height: 100vw;
+    color: black;
+  }
+  .background .container .body .story .item {
+    padding: 25px 10px;
+  }
+  .background .container .body .story .item .title h1 {
+    font-size: 18px;
+  }
+  .background .container .body .story .item .title p, .background .container .body .story .item .title i {
+    font-size: 12px;
+  }
+  .background .container .body .story .controllers {
+    padding: 5px;
+  }
 }
 
 .works {
