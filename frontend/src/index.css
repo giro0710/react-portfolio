@@ -284,17 +284,12 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 .background .container .body .story .item .title {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.background .container .body .story .item .title h1 {
-  text-align: center;
+  margin-bottom: 25px;
 }
 .background .container .body .story .item .title p {
   font-size: 14px;
@@ -304,6 +299,25 @@ body {
 .background .container .body .story .item .title i {
   font-weight: 100;
   font-size: 14px;
+}
+.background .container .body .story .item .title span {
+  font-weight: 100;
+  font-size: 12px;
+  font-style: italic;
+}
+.background .container .body .story .item .context h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.background .container .body .story .item .context span {
+  font-weight: 100;
+  font-size: 12px;
+}
+.background .container .body .story .item .context ul {
+  padding: 0 25px;
+}
+.background .container .body .story .item .context li {
+  text-align: justify;
 }
 .background .container .body .story .controllers {
   position: absolute;
@@ -335,13 +349,13 @@ body {
   }
   .background .container .body .story {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.75);
     width: 100%;
     height: 100vw;
     color: black;
   }
   .background .container .body .story .item {
-    padding: 25px 10px;
+    padding: 25px;
   }
   .background .container .body .story .item .title h1 {
     font-size: 18px;
@@ -349,8 +363,26 @@ body {
   .background .container .body .story .item .title p, .background .container .body .story .item .title i {
     font-size: 12px;
   }
+  .background .container .body .story .item .title span {
+    font-size: 10px;
+  }
+  .background .container .body .story .item .context h1 {
+    font-size: 14px;
+  }
+  .background .container .body .story .item .context span {
+    font-size: 10px;
+  }
+  .background .container .body .story .item .context ul {
+    padding: 0 12px;
+  }
+  .background .container .body .story .item .context li {
+    font-size: 12px;
+  }
   .background .container .body .story .controllers {
-    padding: 5px;
+    padding: 0px;
+  }
+  .background .container .body .story .controllers button {
+    font-size: 32px;
   }
 }
 

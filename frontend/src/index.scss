@@ -351,18 +351,12 @@ body {
           height: 100%;
           display: flex;
           flex-direction: column;
-          align-items: center;
           justify-content: center;
 
           .title {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-  
-            h1 {
-              text-align: center;
-            }
+            margin-bottom: 25px;
     
             p {
               font-size: 14px;
@@ -373,6 +367,32 @@ body {
             i {
               font-weight: 100;
               font-size: 14px;
+            }
+
+            span {
+              font-weight: 100;
+              font-size: 12px;
+              font-style: italic;
+            }
+          }
+
+          .context {
+            h1 {
+              font-size: 20px;
+              margin-bottom: 10px;
+            }
+
+            span {
+              font-weight: 100;
+              font-size: 12px;
+            }
+
+            ul {
+              padding: 0 25px;
+            }
+
+            li {
+              text-align: justify;
             }
           }
         }
@@ -415,13 +435,13 @@ body {
 
         .story {
           position: absolute;
-          background-color: rgba(255, 255, 255, 0.5);
+          background-color: rgba(255, 255, 255, 0.75);
           width: 100%;
           height: 100vw;
           color: black;
 
           .item {
-            padding: 25px 10px;
+            padding: 25px;
 
             .title {
               h1 {
@@ -431,11 +451,37 @@ body {
               p, i {
                 font-size: 12px;
               }
+
+              span {
+                font-size: 10px;
+              }
+            }
+
+            .context {
+              h1 {
+                font-size: 14px;
+              }
+
+              span {
+                font-size: 10px;
+              }
+
+              ul {
+                padding: 0 12px;
+              }
+
+              li {
+                font-size: 12px;
+              }
             }
           }
 
           .controllers {
-            padding: 5px;
+            padding: 0px;
+
+            button {
+              font-size: 32px;
+            }
           }
         }
       }

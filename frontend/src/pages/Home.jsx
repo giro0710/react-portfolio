@@ -22,7 +22,17 @@ function Home() {
       story: (
         <div className="item">
           <div className="title">
-            <h1>GP-Nagata</h1>
+            <h1>GP-Nagata <span>&#40;formerly known as Gameplan Marketing Solutions Inc.&#41;</span></h1>
+          </div>
+          <div className="context">
+            <h1>Senior Web Developer <span>&#40;July 2018 to October 2019&#41;</span></h1>
+            <ul>
+              <li>Developed dashboard and device monitoring tools for internal use of the operation team.</li>
+              <li>Developed content management system for partners and clients use.</li>
+              <li>Successfully created a new product on top of existing product that produces 2 million new revenue for the company from McDonald's, Smart, Paymaya and GCash.</li>
+              <li>Successfully integrated Programmatic Advertising to company Out-of-Home &#40;OOH&#41; screens with the help of Rubicon Project &#40;SSP&#41;, The Trade Desk &#40;DSP&#41;, DataXu &#40;DSP&#41; and Group M &#40;Media Agency&#41;. The product becomes the first programmatic OOH in the Philippines.</li>
+              <li>Achieved the goal of my project which is to reduce the cost consumption of the company cloud infrastucture &#40;Amazon Web Services&#41; by 50%.</li>
+            </ul>
           </div>
         </div>
       )
@@ -33,6 +43,18 @@ function Home() {
         <div className="item">
           <div className="title">
             <h1>GP-Nagata</h1>
+          </div>
+          <div className="context">
+            <h1>Product Development Lead <span>&#40;October 2019 to September 2020&#41;</span></h1>
+            <ul>
+              <li>Developed dashboard and device monitoring tools for internal use of the operation team.</li>
+              <li>Developed content management system for partners and clients use.</li>
+              <li>Created various content templates and design for sponsorship that help sales on selling and getting clients.</li>
+              <li>Oversee company process from development and customization of the product to installation and selling.</li>
+              <li>Participated in company annual business review and strategic planning with my projects on it.</li>
+              <li>Upgrade the company product hardware device from Rasberry Pi to Android which saved 65% of the product manufacturing cost.</li>
+              <li>Created a system where all company products, partners and properties are marked and explorable on the map. It presented and used by many people during the launch of the company partnership with the Japanese.</li>
+            </ul>
           </div>
         </div>
       )
