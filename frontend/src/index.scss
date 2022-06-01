@@ -536,12 +536,41 @@ body {
 
 .contact {
   height: 100vh;
-  background-color: $red;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  background-image: url("./assets/images/flat-wallpaper-city-view.png");
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: $white;
+
+  .container {
+    padding: $containerPadding;
+
+    body {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    background-attachment: scroll;
+    background-position: 0;
+    color: black;
+
+    .container {
+      padding: 25px;
+
+      .body {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        padding: 15px
+      }
+    }
+  }
 }
 
 .footer {

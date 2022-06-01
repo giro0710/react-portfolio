@@ -261,7 +261,9 @@ function Home() {
 
       <section className="contact" id="contact-me">
         <div className="container">
-          <h1>Contact Me</h1>
+          <div className="body">
+            <h1>Contact Me</h1>
+          </div>
         </div>
       </section>
 
