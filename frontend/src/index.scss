@@ -490,13 +490,48 @@ body {
 }
 
 .works {
-  height: 100vh;
   background-color: $black;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   color: $white;
+
+  .container {
+    padding: $containerPadding;
+    
+    .body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 20%;
+        margin-bottom: 25px
+      }
+
+      h1, h2 {
+        font-size: 20px;
+        font-weight: 100;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    height: 100vh; 
+    
+    .container { 
+      padding: 25px;
+      height: 100%;
+
+      .body {
+        height: 100%;
+
+        img {
+          width: 50%;
+        }
+      }
+    }
+  }
 }
 
 .contact {

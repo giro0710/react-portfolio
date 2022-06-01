@@ -2,6 +2,7 @@ import { useState } from "react"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 
 function Home() {
+
   const [currentBSI, setCurrentBSI] = useState(0) // BSI = Background Story Index
   const backgroundStories = [
     {
@@ -82,7 +83,7 @@ function Home() {
 
   return (
     <>
-      <section className="header">
+      <section className="header" id="header">
         <div className="container">
           <div className="title">
             <h1>Gian Roi Calvario</h1>
@@ -96,7 +97,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="skills">
+      <section className="skills" id="skills">
         <div className="container">
           <div className="body">
             <div className="item">
@@ -118,7 +119,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="stacks">
+      <section className="stacks" id="stacks">
         <div className="container">
           <div className="body">
             <div className="stack">
@@ -231,7 +232,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="background">
+      <section className="background" id="background">
         <div className="container">
           <div className="body">
             <div className="photo">
@@ -248,13 +249,17 @@ function Home() {
         </div>
       </section>
 
-      <section className="works">
+      <section className="works" id="my-works">
         <div className="container">
-          <h1>My Works</h1>
+          <div className="body">
+            <img src={require("../assets/images/work-in-progress.png")} alt="work in progress" />
+            <h1>This section is currently under contruction.</h1>
+            <h2>Sorry &#x1F613;</h2>
+          </div>
         </div>
       </section>
 
-      <section className="contact">
+      <section className="contact" id="contact-me">
         <div className="container">
           <h1>Contact Me</h1>
         </div>

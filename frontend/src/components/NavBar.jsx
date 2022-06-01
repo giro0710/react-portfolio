@@ -39,6 +39,21 @@ function NavBar() {
   }, [])
 
   const currentLocation = useLocation().pathname;
+  
+  const hash = useLocation().hash 
+
+  const handleClickToScroll = () => {
+    const id = hash ? hash.substring(1) : "header"
+    const element = document.getElementById(id)
+
+    element.scrollIntoView({behavior: "smooth"})
+  }
+
+  useEffect(() => {
+    if (currentLocation === "/") {
+      handleClickToScroll()
+    }
+  }, [currentLocation, hash])
 
   return (
     <div className="nav">
@@ -53,10 +68,10 @@ function NavBar() {
         <div className={ isMenuClicked ? "items responsive" : "items"}>
           { currentLocation !== "/login" ? (
             <>
-              <Link to="#">Skills</Link>
-              <Link to="#">Background</Link>
-              <Link to="#">My Works</Link>
-              <Link to="#">Contact Me</Link>
+              <Link to="/#skills">Skills</Link>
+              <Link to="/#background">Background</Link>
+              <Link to="/#my-works">My Works</Link>
+              <Link to="/#contact-me">Contact Me</Link>
               { user ? (
                 <a href={void(0)} onClick={logout}>Logout</a>
               ) : (

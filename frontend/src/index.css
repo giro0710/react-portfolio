@@ -387,13 +387,42 @@ body {
 }
 
 .works {
-  height: 100vh;
   background-color: #212121;
+  color: #ffffff;
+}
+.works .container {
+  padding: 89px;
+}
+.works .container .body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+}
+.works .container .body img {
+  width: 20%;
+  margin-bottom: 25px;
+}
+.works .container .body h1, .works .container .body h2 {
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 25px;
+}
+@media screen and (max-width: 600px) {
+  .works {
+    height: 100vh;
+  }
+  .works .container {
+    padding: 25px;
+    height: 100%;
+  }
+  .works .container .body {
+    height: 100%;
+  }
+  .works .container .body img {
+    width: 50%;
+  }
 }
 
 .contact {
