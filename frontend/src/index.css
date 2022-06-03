@@ -11,6 +11,11 @@ body {
   background-color: #212121;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 .nav {
   width: 100%;
   position: fixed;
@@ -23,8 +28,8 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   background-color: transparent;
-  overflow: hidden;
   padding: 0px 75px;
   transition: 0.8s;
 }
@@ -37,6 +42,9 @@ body {
   text-decoration: none;
   font-size: 20px;
 }
+.nav .navbar .items {
+  overflow: hidden;
+}
 .nav .navbar .items a {
   float: left;
   display: block;
@@ -47,7 +55,7 @@ body {
   font-size: 17px;
   cursor: pointer;
 }
-.nav .navbar .items :hover {
+.nav .navbar .items a:hover {
   font-weight: bold;
 }
 .nav .navbar .items .active {
@@ -58,30 +66,40 @@ body {
   display: none;
 }
 @media screen and (max-width: 600px) {
-  .nav .navbar .responsive {
-    position: relative;
-  }
-  .nav .navbar .responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .nav .navbar .responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-}
-@media screen and (max-width: 600px) {
-  .nav .navbar {
-    padding: 0;
-  }
   .nav .navbar .items a {
     display: none;
   }
   .nav .navbar .items .icon {
     float: right;
     display: block;
+  }
+}
+@media screen and (max-width: 600px) {
+  .nav .navbar {
+    position: relative;
+  }
+  .nav .navbar .menu {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .nav .navbar .menu a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+@media screen and (max-width: 600px) {
+  .nav .navbar {
+    padding: 0;
   }
 }
 .nav .scrolled {
@@ -94,6 +112,11 @@ body {
 }
 .nav .scrolled .brand .icon, .nav .scrolled .items .icon {
   color: #212121;
+}
+@media screen and (max-width: 600px) {
+  .nav .scrolled .items a {
+    color: white;
+  }
 }
 
 .header {
@@ -433,42 +456,123 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: #ffffff;
+  color: black;
 }
 .contact .container {
   padding: 89px;
-}
-.contact .container body {
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+.contact .container .item {
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact .container .item .title {
+  margin-bottom: 25px;
+}
+.contact .container .item .body p {
+  font-family: 100;
+  font-size: 14px;
+}
 @media screen and (max-width: 600px) {
   .contact {
+    height: auto;
     background-attachment: scroll;
     background-position: 0;
-    color: black;
   }
   .contact .container {
     padding: 25px;
   }
-  .contact .container .body {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
+  .contact .container .item {
+    width: 100%;
     padding: 15px;
   }
 }
 
 .footer {
-  height: 40vh;
   background-color: #212121;
+  color: #ffffff;
+}
+.footer .container {
+  padding: 50px 89px;
+}
+.footer .container .body {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
+  flex-wrap: wrap;
+}
+.footer .container .body .download {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+}
+.footer .container .body .download h1 {
+  font-weight: 100;
+  margin-bottom: 15px;
+}
+.footer .container .body .download a {
+  text-decoration: none;
+}
+.footer .container .body .info {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 50%;
+}
+.footer .container .body .info .item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+.footer .container .body .info .item label {
+  font-weight: 100;
+  font-size: 14px;
+  text-align: right;
+  margin: 0px 5px;
+}
+.footer .container .body .info .item a {
+  font-size: 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  color: inherit;
+}
+.footer .container .body .info .item a:hover {
+  transform: scale(0.9);
+}
+.footer .container .body .info .social {
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+@media screen and (max-width: 600px) {
+  .footer .container {
+    padding: 25px;
+  }
+  .footer .container .body .download {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+  .footer .container .body .download a {
+    width: 100%;
+  }
+  .footer .container .body .info {
+    width: 100%;
+    align-items: flex-start;
+  }
+  .footer .container .body .info .item {
+    align-items: center;
+  }
+  .footer .container .body .info .item label {
+    text-align: left;
+    order: 1;
+  }
 }
 
 .login {
@@ -518,6 +622,9 @@ body {
   margin-bottom: 10px;
   font-family: inherit;
 }
+.form-group textarea {
+  resize: none;
+}
 .form-group label {
   text-align: left;
   display: block;
@@ -546,6 +653,15 @@ body {
 .btn-block {
   width: 100%;
   margin-bottom: 20px;
+}
+
+.btn-download {
+  width: 30%;
+  background-color: #00aff0;
+  border: 1px solid #00aff0;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
 }
 
 .btn-logout {

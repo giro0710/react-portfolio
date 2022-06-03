@@ -21,6 +21,11 @@ body {
   background-color: $black;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 .nav {
   width: 100%;
   position: fixed;
@@ -33,8 +38,8 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     background-color: transparent;
-    overflow: hidden;
     padding: 0px 75px;
     transition: 0.8s;
 
@@ -51,6 +56,8 @@ body {
     }
 
     .items {
+      overflow: hidden;
+
       a {
         float: left;
         display: block;
@@ -60,10 +67,10 @@ body {
         text-decoration: none;
         font-size: 17px;
         cursor: pointer;
-      }
 
-      :hover {
-        font-weight: bold;
+        &:hover {
+          font-weight: bold;
+        }
       }
 
       .active {
@@ -74,30 +81,8 @@ body {
       .icon {
         display: none;
       }
-    }
-
-    @media screen and (max-width: 600px) {
-      .responsive {
-        position: relative;
-
-        a {
-          float: none;
-          display: block;
-          text-align: left;
-        }
-
-        .icon {
-          position: absolute;
-          right: 0;
-          top: 0;
-        }
-      }
-    }
-
-    @media screen and (max-width: 600px) {
-      padding: 0;
-
-      .items {
+      
+      @media screen and (max-width: 600px) {
         a {
           display: none;
         }
@@ -107,6 +92,35 @@ body {
           display: block;
         }
       }
+    }
+
+
+    @media screen and (max-width: 600px) {
+      position: relative;
+      
+      .menu {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.9);
+        top: 0;
+        left: 0;
+        z-index: -1;
+        
+        a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+      }
+    }
+    
+    @media screen and (max-width: 600px) {
+      padding: 0;
     }
   }
 
@@ -122,6 +136,13 @@ body {
 
       .icon {
         color: $black;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .items {
+        a {
+          color: white;
+        }
       }
     }
   }
@@ -542,31 +563,47 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: $white;
+  color: black;
 
   .container {
     padding: $containerPadding;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
-    body {
-      width: 100%;
+    .item {
+      width: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 5px;
+      padding: 25px;
       display: flex;
-      flex-direction: row;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+
+      .title {
+        margin-bottom: 25px;
+      }
+
+      .body {
+        p {
+          font-family: 100;
+          font-size: 14px;
+        }
+      }
     }
   }
 
   @media screen and (max-width: 600px) {
+    height: auto;
     background-attachment: scroll;
     background-position: 0;
-    color: black;
 
     .container {
       padding: 25px;
 
-      .body {
-        background-color: rgba(255, 255, 255, 0.5);
-        border-radius: 5px;
+      .item {
+        width: 100%;
         padding: 15px
       }
     }
@@ -574,13 +611,99 @@ body {
 }
 
 .footer {
-  height: 40vh;
   background-color: $black;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   color: $white;
+
+  .container {
+    padding: 50px $containerPadding;
+
+    .body {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .download {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 50%;
+
+        h1 {
+          font-weight: 100;
+          margin-bottom: 15px;
+        }
+
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        width: 50%;
+
+        .item {
+          display: flex;
+          flex-direction: row;
+          margin-bottom: 10px;
+
+          label {
+            font-weight: 100;
+            font-size: 14px;
+            text-align: right;
+            margin: 0px 5px;
+          }
+
+          a {
+            font-size: 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            color: inherit;
+
+            &:hover {
+              transform: scale(0.9)
+            }
+          }
+        }
+        
+        .social {
+          margin-top: 25px;
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      padding: 25px;
+
+      .body {
+        .download {
+          width: 100%;
+          margin-bottom: 25px;
+
+          a {
+            width: 100%;
+          }
+        }
+
+        .info {
+          width: 100%;
+          align-items: flex-start;
+          
+          .item {
+            align-items: center;
+
+            label {
+              text-align: left;
+              order: 1;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .login {
@@ -636,6 +759,10 @@ body {
     font-family: inherit;
   }
 
+  textarea {
+    resize: none;
+  }
+
   label {
     text-align: left;
     display: block;
@@ -666,6 +793,16 @@ body {
 .btn-block {
   width: 100%;
   margin-bottom: 20px;
+}
+
+.btn-download {
+  width: 30%;
+  background-color: $blue;
+  border: 1px solid $blue;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+
 }
 
 .btn-logout {

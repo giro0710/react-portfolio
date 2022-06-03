@@ -1,8 +1,9 @@
 import { useState } from "react"
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
+import { FaAngleLeft, FaAngleRight, FaMapMarkerAlt, FaMobileAlt, FaFacebook, FaFacebookMessenger, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa"
+import axios from "axios"
+import { toast } from "react-toastify"
 
 function Home() {
-
   const [currentBSI, setCurrentBSI] = useState(0) // BSI = Background Story Index
   const backgroundStories = [
     {
@@ -79,6 +80,44 @@ function Home() {
     } else {
       setCurrentBSI(lastIndex)
     }
+  }
+
+  const initialEmailOption = {
+    email: "",
+    subject: "",
+    text: ""
+  }
+
+  const [emailOptions, setEmailOptions] = useState(initialEmailOption)
+
+  const { email, subject, text } = emailOptions
+
+  const sendEmail = async () => {
+    const response = await axios.post("/service/mailer/send", emailOptions)
+
+    if (response.status === 200) {
+      toast.success(response.data.message)
+    } else {
+      toast.error(response.data.message)
+    }
+
+    setEmailOptions(initialEmailOption)
+  }
+
+  const handleEmailFieldChange = (e) => {
+    setEmailOptions((prevState) => ({
+      ...prevState, [e.target.name]: e.target.value
+    }))
+  }
+
+  const handleSubmitEmailoptions = (e) => {
+    e.preventDefault()
+
+    if (!email || !subject || !text) {
+      toast.error("Please fill all fields.")
+    }
+
+    sendEmail()
   }
 
   return (
@@ -261,8 +300,27 @@ function Home() {
 
       <section className="contact" id="contact-me">
         <div className="container">
-          <div className="body">
-            <h1>Contact Me</h1>
+          <div className="item">
+            <div className="title">
+              <h1>Send me an email</h1>
+            </div>
+            <div className="body">
+              <form onSubmit={handleSubmitEmailoptions}>
+                <div className="form-group">
+                  <input type="email" name="email" id="email" placeholder="Please enter your email" value={email} onChange={handleEmailFieldChange}/>
+                </div>
+                <div className="form-group">
+                  <input type="text" name="subject" id="subject" placeholder="Subject" value={subject} onChange={handleEmailFieldChange}/>
+                </div>
+                <div className="form-group">
+                  <textarea placeholder="Your message here..." rows="5" name="text" id="text" value={text} onChange={handleEmailFieldChange}></textarea>
+                </div>
+                <div className="form-group">
+                  <button type="submit" className="btn btn-block">Send</button>
+                </div>
+              </form>
+              <p><i>&#40;I will send my response to your given email as soon as possible.&#41;</i></p>
+            </div>
           </div>
         </div>
       </section>
@@ -270,7 +328,35 @@ function Home() {
       <section className="footer">
         <div className="container">
           <div className="body">
-            <h1>Footer</h1>
+            <div className="download">
+              <h1>Thank you for visiting!</h1>
+              <a className="btn btn-download" download href="/Gian Roi Calvario - resume.pdf">Download CV</a>
+            </div>
+            <div className="info">
+              <div className="item">
+                <label>Blk. 4 L. 19 Maunlad Ave. Menzyland Subd. Mojon, City of Malolos, Bulacan</label>
+                <FaMapMarkerAlt />
+              </div>
+              <div className="item">
+                <label>62 Jasmine St. San Antonio Vill. Dalig, City of Antipolo, Rizal</label>
+                <FaMapMarkerAlt />
+              </div>
+              <div className="item">
+                <label>+63 968-709-5746</label>
+                <span><FaMobileAlt /></span>
+              </div>
+              <div className="item">
+                <label>+63 936-775-1390</label>
+                <FaMobileAlt />
+              </div>
+              <div className="item social">
+                <a href="https://facebook.com/ghianrhoi/" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
+                <a href="https://m.me/ghianrhoi" target="_blank" rel="noopener noreferrer"><FaFacebookMessenger /></a>
+                <a href="https://www.instagram.com/girocalvario/?hl=en" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                <a href="https://twitter.com/Prost_GG" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+                <a href="https://linkedin.com/in/giro-calvario" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

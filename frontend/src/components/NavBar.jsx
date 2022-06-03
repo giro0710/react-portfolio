@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import { FaBars, FaArrowLeft } from "react-icons/fa"
+import { FaBars, FaArrowLeft, FaTimes } from "react-icons/fa"
 import { reset, logoutUser } from "../features/auth/authSlice"
 
 function NavBar() {
@@ -47,6 +47,15 @@ function NavBar() {
     const element = document.getElementById(id)
 
     element.scrollIntoView({behavior: "smooth"})
+    setIsMenuClicked(false)
+  }
+
+  const handleMenuClick = () => {
+    if (isMenuClicked) {
+      setIsMenuClicked(false)
+    } else {
+      setIsMenuClicked(true)
+    }
   }
 
   useEffect(() => {
@@ -54,6 +63,14 @@ function NavBar() {
       handleClickToScroll()
     }
   }, [currentLocation, hash])
+
+  useEffect(() => {
+    if (isMenuClicked) {
+      document.body.classList.add("stop-scrolling")
+    } else {
+      document.body.classList.remove("stop-scrolling")
+    }
+  }, [isMenuClicked])
 
   return (
     <div className="nav">
@@ -65,24 +82,24 @@ function NavBar() {
             <Link to="/">{ brandName }</Link>
           ) }
         </div>
-        <div className={ isMenuClicked ? "items responsive" : "items"}>
+        <div className="items">
           { currentLocation !== "/login" ? (
-            <>
+            <div className={ isMenuClicked ? "menu" : "" }>
               <Link to="/#skills">Skills</Link>
               <Link to="/#background">Background</Link>
               <Link to="/#my-works">My Works</Link>
               <Link to="/#contact-me">Contact Me</Link>
-              { user ? (
+              {/* { user ? (
                 <a href={void(0)} onClick={logout}>Logout</a>
               ) : (
                 <Link to="/login">Login</Link>
-              ) }
-            </>
+              ) } */}
+            </div>
           ) : (
             <Link to="#">Register</Link>
           )}
-          <a href={void(0)} className="icon" onClick={() => setIsMenuClicked(true)}>
-            <FaBars />
+          <a href={void(0)} className="icon" onClick={handleMenuClick}>
+            { isMenuClicked ? <FaTimes /> : <FaBars /> }
           </a>
         </div>
       </div>
